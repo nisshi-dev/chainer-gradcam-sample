@@ -1,30 +1,29 @@
+
 # chainer-grad-cam
 
-Chainer implementation of Grad-CAM [1]. Grad-CAM can localize and highlight
-important region in the image for predicting the concept without changing the
-model architecture. Currently, this implementation supports AlexNet, VGGNet or ResNet to generate
-CAM images.
+chainerでGrad-CAMを実装
+最終の特徴マップの出力に対する勾配を計算することで注視領域を計算している。
 
-## Summary
+## 結果
 
 ||Grad-CAM|Guided Backpropagation|Guided Grad-CAM|
 |:-:|:-:|:-:|:-:|
 |Boxer (242)|![](images/dog_gcam.png)|![](images/dog_gbp.png)|![](images/dog_ggcam.png)|
 |Tiger Cat (282)|![](images/cat_gcam.png)|![](images/cat_gbp.png)|![](images/cat_ggcam.png)|
 
-## Requirements
+## 必要ライブラリ
 
 - Chainer
 - Cupy (for GPU support)
 - OpenCV
 
-## Usage
+## オプションの設定方法
 ```
 python run.py --input images/dog_cat.png --label 242 --layer conv5_3 --gpu 0
 python run.py --input images/dog_cat.png --label 282 --layer conv5_3 --gpu 0
 ```
 
-## References
+## 元論文
 
 - [1] Ramprasaath R. Selvaraju, Abhishek Das, Ramakrishna Vedantam, Michael Cogswell, Devi Parikh, Dhruv Batra,
 "Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization",
